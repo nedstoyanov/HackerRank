@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackerRank", "HackerRank.csproj", "{F156CB0E-0037-44B7-A8F5-5B2B92D5083A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BreaddthFirstSearch", "BreaddthFirstSearch.csproj", "{F156CB0E-0037-44B7-A8F5-5B2B92D5083A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Algorithms", "Algorithms", "{7402BF7C-6BF0-4198-BE47-6702A9880188}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GraphTheory", "GraphTheory", "{04695620-A31F-41B7-B4E7-5CE665653B06}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +22,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F156CB0E-0037-44B7-A8F5-5B2B92D5083A} = {04695620-A31F-41B7-B4E7-5CE665653B06}
+		{04695620-A31F-41B7-B4E7-5CE665653B06} = {7402BF7C-6BF0-4198-BE47-6702A9880188}
 	EndGlobalSection
 EndGlobal

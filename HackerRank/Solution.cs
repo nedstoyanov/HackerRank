@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace HackerRank
 {
-    public class TestInputParser
+    public class ConsoleInputParser
     {
         public static List<TestContext> Parse()
         {
@@ -14,8 +14,6 @@ namespace HackerRank
 
             for (int j = 0; j < numTests; j++)
             {
-
-
                 var nodesAndEndges = readIntArray();
                 int numNodes = nodesAndEndges.Count > 0 ? nodesAndEndges[0] : 0;
                 int numEdges = nodesAndEndges.Count > 1 ? nodesAndEndges[1] : 0;
@@ -41,11 +39,11 @@ namespace HackerRank
             return tests;
         }
 
-        private Dictionary<int, Node> createGraph(int numNodes,  List<Tuple<int, int>> edges)
+        private static Dictionary<int, Node> createGraph(int numNodes,  List<Tuple<int, int>> edges)
         {
             var nodes = new Dictionary<int, Node>();
 
-            for (int i = 0; i < numNodes; i++)
+            for (int i = 1; i <= numNodes; i++)
             {
                 nodes[i] = new Node(i);
             }
@@ -59,7 +57,7 @@ namespace HackerRank
             return nodes;
         }
 
-        private List<int> readIntArray()
+        private static List<int> readIntArray()
         {
             var line = Console.ReadLine();
 
@@ -71,7 +69,7 @@ namespace HackerRank
             return new List<int>();
         }
 
-        private int readInt()
+        private static int readInt()
         {
             var line = Console.ReadLine();
 
@@ -118,18 +116,60 @@ namespace HackerRank
         public int ShortestPath { get; set; }
         public int Value { get; }
         public IList<Node>  Neighbours { get; }
+        public bool Visited { get; set; }
     }
 
     public class Solution
     {
         public static void GetShortestPaths(TestContext test)
         {
-            
+            var startNode = test.Graph[test.StartNode];
+            startNode.ShortestPath = 0;
+            startNode.ShortestPathParent = null;
+
+            var unvisitedNodes = new Queue<Node>();
+            unvisitedNodes.Enqueue(startNode);
+            getShortestPaths(unvisitedNodes);
+
+            foreach (var node in test.Graph.Values)
+            {
+                if (node != startNode)
+                {
+                    var pathValue = node.ShortestPath != -1 ? node.ShortestPath*6 : node.ShortestPath;
+                    Console.Write("{0} ", pathValue);
+                }
+            }
+
+            Console.WriteLine();
+        }
+
+        private static void getShortestPaths(Queue<Node> unvisitedNodes)
+        {
+            while (unvisitedNodes.Count > 0)
+            {
+                var currentNode = unvisitedNodes.Dequeue();
+                currentNode.Visited = true;
+
+                foreach (var node in currentNode.Neighbours.Where(x => x.Visited == false))
+                {
+                    unvisitedNodes.Enqueue(node);
+
+                    if (node.ShortestPath == -1)
+                    {
+                        node.ShortestPath = 1;
+                        node.ShortestPathParent = currentNode;
+                    }
+                    else if (node.ShortestPath > currentNode.ShortestPath + 1)
+                    {
+                        node.ShortestPath = currentNode.ShortestPath + 1;
+                    }
+                }
+            }
         }
 
         static void Main(String[] args)
         {
-            var tests = TestInputParser.Parse();
+            var tests = ConsoleInputParser.Parse();
 
             foreach (var test in tests)
             {

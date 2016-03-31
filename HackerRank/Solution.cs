@@ -129,6 +129,7 @@ namespace HackerRank
 
             var unvisitedNodes = new Queue<Node>();
             unvisitedNodes.Enqueue(startNode);
+
             getShortestPaths(unvisitedNodes);
 
             foreach (var node in test.Graph.Values)
@@ -153,15 +154,12 @@ namespace HackerRank
                 foreach (var node in currentNode.Neighbours.Where(x => x.Visited == false))
                 {
                     unvisitedNodes.Enqueue(node);
-
-                    if (node.ShortestPath == -1)
-                    {
-                        node.ShortestPath = 1;
-                        node.ShortestPathParent = currentNode;
-                    }
-                    else if (node.ShortestPath > currentNode.ShortestPath + 1)
+                                        
+                    if ( (node.ShortestPath > currentNode.ShortestPath + 1) 
+                        || node.ShortestPath == -1)
                     {
                         node.ShortestPath = currentNode.ShortestPath + 1;
+                        node.ShortestPathParent = currentNode;
                     }
                 }
             }
@@ -175,6 +173,8 @@ namespace HackerRank
             {
                 GetShortestPaths(test);
             }
+
+            Console.ReadLine();
         }
     }
 }

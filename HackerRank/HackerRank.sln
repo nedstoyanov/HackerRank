@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Algorithms", "Algorithms", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GraphTheory", "GraphTheory", "{04695620-A31F-41B7-B4E7-5CE665653B06}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShortestReach2", "..\ShortestReach2\ShortestReach2.csproj", "{66999C6C-F041-43BA-9F36-1D4D4F789716}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{F156CB0E-0037-44B7-A8F5-5B2B92D5083A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F156CB0E-0037-44B7-A8F5-5B2B92D5083A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F156CB0E-0037-44B7-A8F5-5B2B92D5083A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66999C6C-F041-43BA-9F36-1D4D4F789716}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66999C6C-F041-43BA-9F36-1D4D4F789716}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66999C6C-F041-43BA-9F36-1D4D4F789716}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66999C6C-F041-43BA-9F36-1D4D4F789716}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -26,5 +32,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{F156CB0E-0037-44B7-A8F5-5B2B92D5083A} = {04695620-A31F-41B7-B4E7-5CE665653B06}
 		{04695620-A31F-41B7-B4E7-5CE665653B06} = {7402BF7C-6BF0-4198-BE47-6702A9880188}
+		{66999C6C-F041-43BA-9F36-1D4D4F789716} = {04695620-A31F-41B7-B4E7-5CE665653B06}
 	EndGlobalSection
 EndGlobal
